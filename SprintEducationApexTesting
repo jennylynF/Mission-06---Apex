@@ -1,0 +1,35 @@
+@isTest
+private class MassUpdateEnrolmentProgressionTest {
+    
+      @isTest
+      private static void updateEnrolmentProgressionTest() {
+            
+            Contact contact1 = new Contact();
+            contact1.FirstName = 'Jennylyn';
+            contact1.LastName = 'Faderanga';
+            contact1.Prior_Qualification__c = 'Below Tertiary';
+            contact1.Enrolment_Progression__c = 'Advanced';
+            contact1.Status__c = 'Active';
+            insert contact1;
+            
+            Contact contact2 = new Contact();
+            contact2.FirstName = 'Neil';
+            contact2.LastName = 'Peart';
+            contact2.Prior_Qualification__c = 'Tertiary Graduate';
+            contact2.Enrolment_Progression__c = 'Ultimate';
+            contact2.Status__c = 'Active';
+            insert contact2;
+            
+            Contact contact3 = new Contact();
+            contact3.FirstName = 'Joey';
+            contact3.LastName = 'Jordison';
+            contact3.Prior_Qualification__c = 'Tertiary Post-Graduate';
+            contact3.Enrolment_Progression__c = 'Extra';
+            contact3.Status__c = 'Active';
+            insert contact3;
+            
+          MassUpdateEnrolmentProgression.updateEnrolmentProgression();
+            
+    }
+    
+}
