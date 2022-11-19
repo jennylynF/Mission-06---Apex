@@ -1,0 +1,31 @@
+public class MassUpdateEnrolmentProgression {
+    
+    public static void updateEnrolmentProgression() {
+        
+        List<Contact> updatedContactList = new List<Contact>();
+        List<Contact> contacts = [ SELECT Id, Prior_Qualification__c FROM Contact ];
+        
+        for (Contact contact : contacts) {
+            
+            if (contact.Prior_Qualification__c == 'Below Tertiary') {
+                contact.Enrolment_Progression__c = 'Advanced';
+                
+            } else if (contact.Prior_Qualification__c == 'Tertiary Graduate') {
+                contact.Enrolment_Progression__c = 'Ultimate';
+                
+            } else {
+                contact.Enrolment_Progression__c = 'Extra';
+                
+            }
+            
+      System.debug(contact.Enrolment_Progression__c);  
+            
+            updatedContactList.add(contact);
+
+        }
+        
+        update updatedContactList;
+        
+    }
+    
+}
